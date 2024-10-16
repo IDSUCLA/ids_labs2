@@ -35,7 +35,7 @@ library(mobilizr2)
 - A `dotPlot` is another plot that can be used to analyze a numerical variable.
   - Dotplots are better suited for smaller datasets. If datasets are too large, the dots become too small to see.
   - Similarly, distributions with a large spread might impact the readability of the plot.
-- <span class="blue">Use the `dotPlot()` function to create a `dotPlot` of the amount of `sugar` in our `food` data.</span>
+- <span class="blue">(1) Use the `dotPlot()` function to create a `dotPlot` of the amount of `sugar` in our `food` data.</span>
     - The code to create a `dotPlot` is exactly like you'd use to make a `histogram`.
     - Make sure to use a capital _P_ in `dotPlot`.
     
@@ -44,11 +44,11 @@ library(mobilizr2)
 
 - While a `dotPlot` should conserve the exact value of each data point, sometimes it behaves like a `histogram` in that it lumps values together.
 
-- <span class="blue">Create a more accurate `dotPlot` by including the `nint` option.</span>
+- <span class="blue">(2) Create a more accurate `dotPlot` by including the `nint` option.</span>
+  - Using your `food` data spreadsheet, obtain the minimum value for `sugar` by clicking on the `sugar` header to sort in ascending order.
+  - Click on the `sugar` header again to sort in descending order and obtain the maximum value for `sugar`.
   - Set `nint` equal to the maximum value for `sugar` minus the minimum value for `sugar` plus one.
-    - <span class="blue">On your `food` data spreadsheet, click on the `sugar` header to sort in ascending order (to obtain minimum). </span>
-    - <span class="blue">Click on the `sugar` header again to sort in descending order (to obtain maximum). </span>
-  - <span class="blue">Use your _History_ pane to see how we included the option `nint` with the `histogram` function.</span>
+  - Use your _History_ pane to see how we included the option `nint` with the `histogram` function.
   
 - Pro tip: If the `dotPlot` comes out looking wonky, try changing the value of the _character expansion_ option, `cex`. 
     - The default value is `1`. Try a few values between `0` and `1` and a few more values larger than `1`.
@@ -57,16 +57,16 @@ library(mobilizr2)
 
 - In lab 1B, we learned that we can _facet_ (or split) our data based on a categorical variable.
 
-- <span class="blue">Split the `dotPlot` displaying the distribution of grams of `sugar` in two, by faceting on our observations' `salty_sweet` variable.</span>
-    - **Describe how `R` decides which observations go into the left or right plot.**
-    - **What does each _dot_ in the plot represent?**
+- <span class="blue">(3) Split the `dotPlot` displaying the distribution of grams of `sugar` in two, by faceting on our observations' `salty_sweet` variable.</span>
+    - **(4) Describe how `R` decides which observations go into the left or right plot.**
+    - **(5) What does each _dot_ in the plot represent?**
 
 
 ## Altering the layout
 
 - It would be much easier to compare the `sugar` levels of salty and sweet snacks if the dotPlots were stacked on top of one another.
 - We can change the _layout_ of our separated plots by including the `layout` option in our `dotPlot` function. 
-    - <span class="blue">Add the following option to the code you used to create the `dotPlot` split by `salty_sweet`.</span>
+    - <span class="blue">(6) Add the following option to the code you used to create the `dotPlot` split by `salty_sweet`.</span>
 ```{r, eval = FALSE, echo = TRUE }
 layout = c(1,2)
 ```
@@ -84,12 +84,12 @@ layout = c(1,2)
 
 - Creating a plot for `Salty` and a plot for `Sweet` is useful for comparing `Salty` and `Sweet`. What if we want to examine one group by itself?
 - The line of code below creates a subset of the `food` dataset containing only `Salty` snacks. We will break it down piece by piece in the next few slides.
-- <span class="blue">Run the line of code below.</span>
+- Run the line of code below.
 
 ```{r, eval = FALSE, echo = TRUE}
 food_salty <- filter(food, salty_sweet == "Salty")
 ```
-- **`View` `food_salty` and write down the number of observations in it.**
+- **(7) `View` `food_salty` and write down the number of observations in it.**
 
 
 ## So what's really going on?
@@ -118,11 +118,11 @@ food_salty <- filter(food, salty_sweet == "Salty")
 - We can use the `head()` function to help us see what's happening when we write `salty_sweet == "Salty"`.
     - `head()` returns the values of the first 6 observations.
     - The `tail()` function returns the last 6 observations.
-- <span class="blue">Run the following code and answer the question below:</span>
+- Run the following code and answer the question below:
 ```{r, eval = FALSE, echo = TRUE}
 head(~salty_sweet == "Salty", data = food)
 ```
-- **What do the values `TRUE` and `FALSE` tell us about how our _rule_ applies to the first six snacks in our data? Which of the first six observations were `Salty`?**
+- **(8) What do the values `TRUE` and `FALSE` tell us about how our _rule_ applies to the first six snacks in our data? Which of the first six observations were `Salty`?**
 
 ## Saving values
 
@@ -148,7 +148,7 @@ food_salty <- filter(food, salty_sweet == "Salty")
 - We can now use `food_salty` to do anything we could do with the regular `food` data ...
     - but only including those snacks who reported being `Salty`.
 - As a result of assigning the subset data to `food_salty`, `food_salty` now appears in the _Environment_ pane. Whenever data is assigned to a variable name, that variable name will appear in the _Environment_ pane.
-- <span class="blue">Use `food_salty` to make a `dotPlot` of the `sodium` in our `Salty` snacks.</span>
+- <span class="blue">(9) Use `food_salty` to make a `dotPlot` of the `sodium` in our `Salty` snacks.</span>
 
 ## Including more filters
 
@@ -160,19 +160,19 @@ food_salty <- filter(food, salty_sweet == "Salty")
 my_sub <- filter(food, salty_sweet == "Salty", calories < 200)
 ```
 
-- <span class="blue">`View` the  `my_sub` data we filtered in the above line of code and verify that it only includes salty snacks that have less than 200 calories.</span>
+- <span class="blue">(10) `View` the  `my_sub` data we filtered in the above line of code and verify that it only includes salty snacks that have less than 200 calories.</span>
 
 
 ## Put it all together
 
-- **Use an appropriate `dotPlot` to answer each of the following questions:**
-    - **About how much `sugar` does the typical sweet snack have?**
-    - **How does the typical amount of `sugar` compare when `healthy_level < 3` and when `healthy_level > 3`?**
+- **(11) Use an appropriate `dotPlot` to answer each of the following questions:**
+    - **(12) About how much `sugar` does the typical sweet snack have?**
+    - **(13) How does the typical amount of `sugar` compare when `healthy_level < 3` and when `healthy_level > 3`?**
     
 - Because you are now working with subsets of data, it is important to label our plots and make this distinction.
 
   - We can use the `main` option to add a title to our plots.
-    - <span class="blue">Add the following option to the code you used to create the `dotPlot` of the `sugar` in `Sweet` snacks.</span>
+    - <span class="blue">(14) Add the following option to the code you used to create the `dotPlot` of the `sugar` in `Sweet` snacks.</span>
 ```{r, eval = FALSE, echo = TRUE }
 main = "Distribution of sugar in sweet snacks"
 ```

@@ -33,16 +33,16 @@ require(mobilizr2)
 
 ## First steps first.
 
-- <span class="blue">_Export_, _Upload_, _Import_ the data from your class's _Time Use_ campaign.</span>
+- <span class="blue">(1) _Export_, _Upload_, _Import_ the data from your class's _Time Use_ campaign.</span>
 
 - The data, as-is, is very messy and hard to interpret/analyze.
 
-    - <span class="blue">Fill in the blank with the name of your imported data to format it:</span>
+    - <span class="blue">(2) Fill in the blank with the name of your imported data to format it:</span>
 ```{r, eval = FALSE, echo = TRUE}
 timeuse <- timeuse_format( _____ )
 ```
 - This function formats/cleans the data so that each row represents a typical day for each student in the class.
-- <span class="blue">Hint: Search your _History_ tab for the code to save your formatted `timeuse` data as an `R` data file (`.Rda`).</span>
+- Hint: Search your _History_ tab for the code to save your formatted `timeuse` data as an `R` data file (`.Rda`).
 
 
 ## timeuse_format specifics
@@ -55,16 +55,16 @@ timeuse <- timeuse_format( _____ )
 ## Exploring your data
 
 - Start by getting familiar with your `timeuse` data: 
-    - **How many observations and variables are there?**
-    - **What are the names of the variables?**
-    - **Which row represents YOUR _typical day_?**
+    - **(3) How many observations and variables are there?**
+    - **(4) What are the names of the variables?**
+    - **(5) Which row represents YOUR _typical day_?**
   
   
 ## How do we spend our time?
 
 - We would like to investigate the _research question_: "How did our class spend our time?"
     - To do this, we'll perform a statistical investigation.
-- **State and answer two statistical investigative questions based on our _research question_.**  
-    - **Also, state one way in which your personal data is _typical_ and one way that it _differs_ from the rest of the class.** 
-- **Justify your answers by using appropriate statistical graphics and summary tables.** 
-    - **If you subset your data, explain why and how it benefited your analysis.**
+- **(6) State and answer two statistical investigative questions based on our _research question_.**  
+    - **(7) Also, state one way in which your personal data is _typical_ and one way that it _differs_ from the rest of the class.** 
+- **(8) Justify your answers by using appropriate statistical graphics and summary tables.** 
+    - If you subset your data, explain why and how it benefited your analysis.
